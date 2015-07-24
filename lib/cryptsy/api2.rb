@@ -27,6 +27,7 @@ module Cryptsy
         Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https', ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
           request = Net::HTTP::Get.new(uri)
           request = Net::HTTP::Post.new(uri) if method == "POST"
+          request = Net::HTTP::Delete.new(uri) if method == "DELETE"
           request['Sign'] = sign(query, private_key) if auth
           request['Key'] = public_key if auth
           response = http.request(request)
