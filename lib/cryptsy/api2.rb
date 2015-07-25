@@ -49,7 +49,7 @@ module Cryptsy
         end
         output = JSON.parse(response.body)
         return output['data'] if output['success']
-        return output['error']
+        return output
       rescue JSON::ParserError => e
         return response.body
       end
