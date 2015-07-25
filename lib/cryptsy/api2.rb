@@ -34,9 +34,7 @@ module Cryptsy
         url = "https://api.cryptsy.com/api/v2/#{path}"
         query[:nonce] = nonce if auth
         options = URI.encode_www_form(query) unless query.empty?
-        headers = {}
-        headers["Sign"] = sign(query, private_key) if auth
-        headers["Key"] = public_key if auth
+        headers = { "Sign" => sign(query, private_key), "Key" => public_key } if auth
         case method
         when "POST"
           response = HTTParty.post(url, headers: headers, body: query)
