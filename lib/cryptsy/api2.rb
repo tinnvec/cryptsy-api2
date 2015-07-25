@@ -47,8 +47,9 @@ module Cryptsy
           params[:query] = query unless query.empty?
           response = HTTParty.get(url, params)
         end
-
-        return JSON.parse(response.body)
+        output = JSON.parse(response.body)
+        return output['data'] if output['success']
+        return output['error']
       rescue JSON::ParserError => e
         return response.body
       end
