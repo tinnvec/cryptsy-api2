@@ -5,20 +5,28 @@ require 'json'
 
 require_relative 'api2/user'
 require_relative 'api2/markets'
+require_relative 'api2/currencies'
+require_relative 'api2/order'
+require_relative 'api2/converter'
+require_relative 'api2/trigger'
 
 module Cryptsy
   module API2
     class Client
-      attr_accessor :user, :markets
+      attr_accessor :user, :markets, :currencies, :order, :converter, :trigger
 
       def initialize(public_key=nil, private_key=nil)
         @user = User.new(public_key, private_key)
         @markets = Markets.new(public_key, private_key)
+        @currencies = Currencies.new(public_key, private_key)
+        @order = Order.new(public_key, private_key)
+        @converter = Converter.new(public_key, private_key)
+        @trigger = Trigger.new(public_key, private_key)
       end
     end
 
     class Request
-
+      
       def self.send(path, query={}, public_key=nil, private_key=nil, method="GET")
         auth = !public_key.nil? && !private_key.nil?
         query[:nonce] = nonce if auth

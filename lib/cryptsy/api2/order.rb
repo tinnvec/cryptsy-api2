@@ -7,6 +7,8 @@ module Cryptsy
         @private_key = private_key
       end
 
+      # Required Options:
+      # { marketid: 0, ordertype: 'buy|sell', quantity: 0.00, price: 0.00 }
       def create(options)
         Request.send("order", options, @public_key, @private_key, "POST")
       end

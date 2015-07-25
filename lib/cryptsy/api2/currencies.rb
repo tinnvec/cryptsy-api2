@@ -20,3 +20,6 @@ module Cryptsy
       # def status(currency_id)
       #   Request.send("currencies/#{currency_id}/status", {}, @public_key, @private_key)
       # end
+    end
+  end
+end
