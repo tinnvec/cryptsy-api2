@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    cryptsy-api2 (1.0.0)
+      httparty (~> 0.13.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -5,10 +11,12 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.3)
+    minitest (5.7.0)
     multi_xml (0.5.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  httparty
+  cryptsy-api2!
+  minitest (~> 5.7.0)
