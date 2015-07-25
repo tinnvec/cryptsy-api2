@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'cryptsy-api2'
-  spec.version     = '0.9.5'
+  spec.version     = '0.9.9'
   spec.date        = '2015-07-24'
   spec.summary     = "Cryptsy API v2"
   spec.description = "Ruby library for Cryptsy API v2"
