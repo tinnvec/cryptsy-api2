@@ -14,6 +14,10 @@ module Cryptsy
         Request.send("currencies/#{currency_id}")
       end
 
+      def marketlist(currency_id)
+        Request.send("currencies/#{currency_id}/markets")
+      end
+
       # Need extra special access for these, think about testing later?
       #
       # def status(currency_id)
