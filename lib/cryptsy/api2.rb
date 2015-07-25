@@ -48,6 +48,8 @@ module Cryptsy
         end
 
         return JSON.parse(response.body)
+      rescue JSON::ParserError => e
+        return response.body
       end
 
       private
