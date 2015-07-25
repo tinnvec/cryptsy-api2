@@ -1,7 +1,6 @@
 module Cryptsy
   module API2
     class Currencies
-
       def initialize(public_key=nil, private_key=nil)
         @public_key = public_key
         @private_key = private_key

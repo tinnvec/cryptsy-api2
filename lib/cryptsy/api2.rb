@@ -26,7 +26,6 @@ module Cryptsy
     end
 
     class Request
-      
       def self.send(path, query={}, public_key=nil, private_key=nil, method="GET")
         auth = !public_key.nil? && !private_key.nil?
         query[:nonce] = nonce if auth

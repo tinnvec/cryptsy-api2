@@ -1,8 +1,7 @@
 module Cryptsy
   module API2
     class User
-
-      #TODO: string to id conversion for currency_id
+      # TODO: string to id conversion for currency_id
 
       def initialize(public_key=nil, private_key=nil)
         @public_key = public_key
