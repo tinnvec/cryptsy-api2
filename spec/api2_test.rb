@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'cryptsy/api2'
 
-require_relative 'test_helper'
+require_relative 'spec_helper'
 
 class TestAPI2 < Minitest::Test
 
