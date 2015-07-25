@@ -12,6 +12,7 @@ Add this line to your `Gemfile`
 ```ruby
 gem 'cryptsy-api2'
 ```
+
 Then run bundler
 ```bash
 $ bundle install
