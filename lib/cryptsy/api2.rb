@@ -35,13 +35,17 @@ module Cryptsy
         query[:nonce] = nonce if auth
         options = URI.encode_www_form(query) unless query.empty?
         headers = { "Sign" => sign(query, private_key), "Key" => public_key } if auth
+        params = {}
+        params[:headers] = headers unless headers.nil?
+        params[:body] = query unless query.empty? || method == "GET"
         case method
         when "POST"
-          response = HTTParty.post(url, headers: headers, body: query)
+          response = HTTParty.post(url, params)
         when "DELETE"
-          response = HTTParty.delete(url, headers: headers, body: query)
+          response = HTTParty.delete(url, params)
         else
-          response = HTTParty.get(url, headers: headers, query: query)
+          params[:query] = query unless query.empty?
+          response = HTTParty.get(url, params)
         end
 
         return JSON.parse(response.body)
