@@ -37,14 +37,14 @@ module Cryptsy
         headers = { "Sign" => sign(query, private_key), "Key" => public_key } if auth
         params = {}
         params[:headers] = headers unless headers.nil?
-        params[:body] = query unless query.empty? || method == "GET"
+        params[:query] = query unless query.empty?
         case method
         when "POST"
+          params[:body] = options
           response = HTTParty.post(url, params)
         when "DELETE"
           response = HTTParty.delete(url, params)
         else
-          params[:query] = query unless query.empty?
           response = HTTParty.get(url, params)
         end
         output = JSON.parse(response.body)
