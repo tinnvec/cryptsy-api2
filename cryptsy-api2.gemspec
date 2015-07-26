@@ -16,5 +16,5 @@ Gem::Specification.new do |spec|
   spec.homepage    = 'https://github.com/tinnvec/cryptsy-api2'
   spec.license     = 'ISC'
   spec.add_runtime_dependency 'httparty', '~> 0.13.5'
-  spec.add_development_dependency 'minitest', '~> 5.7.0'
+  spec.add_development_dependency 'minitest', '~> 5.7', '>= 5.7.0'
 end

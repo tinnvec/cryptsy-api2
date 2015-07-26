@@ -28,4 +28,4 @@ PLATFORMS
 DEPENDENCIES
   codeclimate-test-reporter
   cryptsy-api2!
-  minitest (~> 5.7.0)
+  minitest (~> 5.7, >= 5.7.0)
