@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cryptsy-api2 (1.0.0)
+    cryptsy-api2 (1.0.4)
       httparty (~> 0.13.5)
 
 GEM
