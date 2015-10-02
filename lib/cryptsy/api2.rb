@@ -1,6 +1,3 @@
-require 'bundler/setup'
-Bundler.require
-
 require 'httparty'
 require 'json'
 require 'openssl'
