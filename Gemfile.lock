@@ -15,7 +15,6 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.3)
-    minitest (5.8.1)
     multi_xml (0.5.5)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
@@ -42,5 +41,4 @@ PLATFORMS
 DEPENDENCIES
   codeclimate-test-reporter
   cryptsy-api2!
-  minitest (~> 5.7, >= 5.7.0)
   rspec
