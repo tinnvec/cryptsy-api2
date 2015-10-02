@@ -7,15 +7,15 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    codeclimate-test-reporter (0.4.7)
+    codeclimate-test-reporter (0.4.8)
       simplecov (>= 0.7.1, < 1.0.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    httparty (0.13.5)
+    httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.3)
-    minitest (5.7.0)
+    minitest (5.8.1)
     multi_xml (0.5.5)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
