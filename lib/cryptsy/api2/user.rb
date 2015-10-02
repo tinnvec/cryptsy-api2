@@ -13,33 +13,23 @@ module Cryptsy
       end
 
       def balances(currency_id=nil, options={})
-        path = "balances"
-        path += "/#{currency_id}" unless currency_id.nil?
-        Request.send(path, options, @public_key, @private_key)
+        make_user_request("balances", currency_id, options)
       end
 
       def deposits(currency_id=nil, options={})
-        path = "deposits"
-        path += "/#{currency_id}" unless currency_id.nil?
-        Request.send(path, options, @public_key, @private_key)
+        make_user_request("deposits", currency_id, options)
       end
 
       def addresses(currency_id=nil, options={})
-        path = "addresses"
-        path += "/#{currency_id}" unless currency_id.nil?
-        Request.send(path, options, @public_key, @private_key)
+        make_user_request("addresses", currency_id, options)
       end
 
       def orders(currency_id=nil, options={})
-        path = "orders"
-        path += "/#{currency_id}" unless currency_id.nil?
-        Request.send(path, options, @public_key, @private_key)
+        make_user_request("orders", currency_id, options)
       end
 
       def triggers(currency_id=nil, options={})
-        path = "triggers"
-        path += "/#{currency_id}" unless currency_id.nil?
-        Request.send(path, options, @public_key, @private_key)
+        make_user_request("triggers", currency_id, options)
       end
 
       def tradehistory(options={})
@@ -51,15 +41,11 @@ module Cryptsy
       end
 
       def transfers(currency_id=nil, options={})
-        path = "transfers"
-        path += "/#{currency_id}" unless currency_id.nil?
-        Request.send(path, options, @public_key, @private_key)
+        make_user_request("transfers", currency_id, options)
       end
 
       def withdrawals(currency_id=nil, options={})
-        path = "withdrawals"
-        path += "/#{currency_id}" unless currency_id.nil?
-        Request.send(path, options, @public_key, @private_key)
+        make_user_request("withdrawals", currency_id, options)
       end
 
       # Need extra special access for these, think about testing later?
@@ -75,6 +61,13 @@ module Cryptsy
       #   path += "/#{currency_id}" unless currency_id.nil?
       #   Request.send(path, options, @public_key, @private_key)
       # end
+
+      private
+
+        def make_user_request(path, currency_id=nil, options={})
+          path += "/#{currency_id}" unless currency_id.nil?
+          Request.send(path, options, @public_key, @private_key)
+        end
     end
   end
 end
