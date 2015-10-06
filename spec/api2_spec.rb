@@ -2,7 +2,7 @@ require 'cryptsy/api2'
 
 describe Cryptsy::API2::Client do
   subject { Cryptsy::API2::Client.new }
-  describe "attributes" do
+  describe 'attributes' do
     it { is_expected.to respond_to(:user) }
     it { is_expected.to respond_to(:markets) }
     it { is_expected.to respond_to(:currencies) }
@@ -11,3 +11,10 @@ describe Cryptsy::API2::Client do
     it { is_expected.to respond_to(:trigger) }
   end
 end
+
+# describe Cryptsy::API2::Currencies do
+#   subject { Cryptsy::API2::Currencies.new }
+#   describe '#list' do
+#     it { is_expected.to be(JSON) }
+#   end
+# end
