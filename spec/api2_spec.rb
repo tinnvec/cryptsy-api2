@@ -1,7 +1,7 @@
 require 'cryptsy/api2'
 
 describe Cryptsy::API2::Client do
-  subject { Cryptsy::API2::Client.new }
+  subject { Cryptsy::API2::Client.new(ENV['PUB_KEY'], ENV['PRIV_KEY']) }
 
   describe 'attributes' do
     it { is_expected.to respond_to(:user) }
@@ -11,46 +11,104 @@ describe Cryptsy::API2::Client do
     it { is_expected.to respond_to(:converter) }
     it { is_expected.to respond_to(:trigger) }
   end
-end
 
-describe Cryptsy::API2::Currencies do
-  subject { Cryptsy::API2::Currencies.new }
+  # describe '#user' do
+  #
+  # end
 
-  describe '#list' do
-    it 'returns more than one currency' do
-      expect(subject.list.count).to be > 1
+  describe '#markets' do
+    describe '#list' do
+      it 'returns more than one market' do
+        expect(subject.markets.list.count).to be > 1
+      end
+    end
+
+    describe '#info' do
+      context 'with market_id of "LTC_BTC"' do
+        it 'returns id info of "3"' do
+          expect(subject.markets.info('LTC_BTC')['id']).to eq "3"
+        end
+      end
+    end
+
+    describe '#volume' do
+      context 'with no market_id' do
+        it 'returns info for more than 1 market' do
+          expect(subject.markets.volume.count).to be > 1
+          expect(subject.markets.volume[0]['id']).not_to be_empty
+        end
+      end
+
+      context 'with market_id of "LTC_BTC"' do
+        it 'returns id info of "3"' do
+          expect(subject.markets.volume('LTC_BTC')['id']).to eq "3"
+        end
+      end
+    end
+
+    describe '#ticker' do
+      context 'with no market_id' do
+        it 'returns info for more than 1 market' do
+          expect(subject.markets.ticker.count).to be > 1
+          expect(subject.markets.ticker[0]['id']).not_to be_empty
+        end
+      end
+
+      context 'with market_id of "LTC_BTC"' do
+        it 'returns id info of "3"' do
+          expect(subject.markets.ticker('LTC_BTC')['id']).to eq "3"
+        end
+      end
+    end
+
+    describe '#fees' do
+      context 'with market_id of "LTC_BTC"' do
+        it 'returns info' do
+          expect(subject.markets.fees('LTC_BTC')['buyfeepercent']).not_to be_nil
+        end
+      end
     end
   end
 
-  describe '#info' do
-    context 'with currency_id of "BTC"' do
-      it 'returns name info of "BitCoin"' do
-        expect(subject.info('BTC')['name']).to eql "BitCoin"
+  describe '#currencies' do
+    describe '#list' do
+      it 'returns more than one currency' do
+        expect(subject.currencies.list.count).to be > 1
       end
-      it 'returns id info of "3"' do
-        expect(subject.info('BTC')['id']).to eql "3"
+    end
+
+    describe '#info' do
+      context 'with currency_id of "BTC"' do
+        it 'returns name info of "BitCoin"' do
+          expect(subject.currencies.info('BTC')['name']).to eq "BitCoin"
+        end
+        it 'returns id info of "3"' do
+          expect(subject.currencies.info('BTC')['id']).to eq "3"
+        end
+      end
+    end
+
+    describe '#marketlist' do
+      context 'with currency_id of "BTC"' do
+        it 'returns id info of "3"' do
+          expect(subject.currencies.marketlist('BTC')['id']).to eq "3"
+        end
+        it 'returns markets info' do
+          expect(subject.currencies.marketlist('BTC')['markets']).not_to be_nil
+        end
       end
     end
   end
 
-  describe '#marketlist' do
-    context 'with currency_id of "BTC"' do
-      it 'returns id info of "3"' do
-        expect(subject.marketlist('BTC')['id']).to eql "3"
-      end
-      it 'returns markets info' do
-        expect(subject.marketlist('BTC')['markets']).not_to eql nil
-      end
-    end
-  end
-end
+  # describe '#order' do
+  #
+  # end
 
-describe Cryptsy::API2::Markets do
-  subject { Cryptsy::API2::Markets.new }
+  # describe '#converter' do
+  #
+  # end
 
-  describe '#list' do
-    it 'returns more than one market' do
-      expect(subject.list.count).to be > 1
-    end
-  end
+  # describe '#trigger' do
+  #
+  # end
 end
