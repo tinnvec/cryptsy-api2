@@ -13,7 +13,9 @@ describe Cryptsy::API2::Client do
   end
 
   # describe '#user' do
+  #   describe '#balances' do
   #
+  #   end
   # end
 
   describe '#markets' do
@@ -65,6 +67,30 @@ describe Cryptsy::API2::Client do
       context 'with market_id of "LTC_BTC"' do
         it 'returns info' do
           expect(subject.markets.fees('LTC_BTC')['buyfeepercent']).not_to be_nil
+        end
+      end
+    end
+
+    describe '#triggers' do
+      context 'with market_id of "LTC_BTC"' do
+        it 'returns info' do
+          expect(subject.markets.triggers('LTC_BTC')).not_to be_nil
+        end
+      end
+    end
+
+    describe '#orderbook' do
+      context 'with market_id of "LTC_BTC"' do
+        it 'returns info' do
+          expect(subject.markets.orderbook('LTC_BTC')['sellorders'].count).to be > 0
+        end
+      end
+    end
+
+    describe '#tradehistory' do
+      context 'with market_id of "LTC_BTC"' do
+        it 'returns info' do
+          expect(subject.markets.tradehistory('LTC_BTC').count).to be > 0
         end
       end
     end
