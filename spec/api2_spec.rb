@@ -18,44 +18,53 @@ describe Cryptsy::API2::Client do
         expect(subject.user.info).not_to be_nil
       end
     end
+
     describe '#balances' do
       it 'returns info' do
         expect(subject.user.balances).not_to be_nil
       end
     end
+
     describe '#deposits' do
       it 'returns info' do
         expect(subject.user.deposits).not_to be_nil
       end
     end
+
     describe '#addresses' do
       it 'returns info' do
         expect(subject.user.addresses).not_to be_nil
       end
     end
+
     describe '#orders' do
       it 'returns info' do
         expect(subject.user.orders).not_to be_nil
       end
     end
+
     describe '#triggers' do
       it 'returns info' do
         expect(subject.user.triggers).not_to be_nil
       end
     end
+
     describe '#tradehistory' do
       it 'returns info' do
         expect(subject.user.tradehistory).not_to be_nil
       end
     end
+
     # describe '#validatetradekey' do
     #
     # end
+
     describe '#transfers' do
       it 'returns info' do
         expect(subject.user.transfers).not_to be_nil
       end
     end
+    
     describe '#withdrawals' do
       it 'returns info' do
         expect(subject.user.withdrawals).not_to be_nil
