@@ -52,13 +52,5 @@ api.markets.info 'ltc_btc'
 ```
 
 Support
--------
-**If you'd like to support development of this gem, it is greatly appreciated!**  
-
-There are several ways you can help:
-* Sign up for a Cryptsy account with my [referral link](https://www.cryptsy.com/users/register?refid=334408)
-* Donate Coins
-  * **BTC** - 1tinnSKqC8XnZJreR3GkQbHhG7u7w91tr
-  * **LTC** - LbWUSsmmyQszbsn2ZZG46Mju5ESGjNtEer
-  * **DOGE** - DCfHQwD3RbER6kKbMjeuixAX16so5WuryX
-  * **XPM** - AL2Dq1uMUiCsjZmyQi9Q2U831SSmbo4eKw
+--------
+Like my code? Want to support my coffee habit? http://tinnvec.com/support
