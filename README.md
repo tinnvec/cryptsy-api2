@@ -1,3 +1,5 @@
+THIS PROJECT IS DEPRECATED DUE TO THE CLOSING OF CRYPTSY
+
 Cryptsy API v2
 ==============
 [![Code Climate](https://codeclimate.com/github/tinnvec/cryptsy-api2/badges/gpa.svg)](https://codeclimate.com/github/tinnvec/cryptsy-api2)
